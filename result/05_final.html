@@ -1,0 +1,87 @@
+<html>
+<head>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        line-height: 1.4em;
+        background: #f5f5f5;
+        color: #4d4d4d;
+        min-width: 230px;
+        max-width: 550px;
+        margin: 0 auto;
+        font-weight: 300;
+  }
+
+  .main_list {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .main_list li {
+      font-size: 24px;
+      padding: 15px 60px 15px 15px;
+      list-style: none;
+  }
+
+  #newEntry, #submitNewEntry {
+      width: 100%;
+      font-size: 24px;
+      line-height: 1.4em;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 1px 1px 4px #dadada;
+      margin-top: 1em;
+  }
+
+  #newEntry {
+      padding: 16px 16px 16px 60px;
+      background-color: lightgray;
+  }
+
+  #submitNewEntry {
+      border: 0;
+      padding: 8px 15px 8px 15px;
+      background: #ff8500;
+      color: #fff;
+  }
+
+  #submitNewEntry:hover {
+      background: #ff7000;
+  }
+
+  </style>
+</head>
+
+<body>
+  <h1>Hello World</h1>
+  <h2>Erste Überschrift</h2>
+  <form id='theForm'>
+    <div>
+      <input id='newEntry' placeholder='enter next item' type="text">
+    </div>
+    <div>
+      <input id='submitNewEntry' type="submit" value="Add the thing"></input>
+    </div>
+  </form>
+  <ul id='identifyMe' class="main_list">
+  </ul>
+
+  <script>
+    var submitter = document.getElementById('submitNewEntry');
+    submitter.addEventListener('click', function(e) {
+      var newEntryText = document.getElementById('newEntry').value;
+      var newLi = document.createElement('li');
+      newLi.innerHTML = newEntryText;
+      document.getElementById('identifyMe').appendChild(newLi);
+
+      document.getElementById('newEntry').value = '';
+      event.preventDefault();
+    });
+  </script>
+
+</body>
+</html>
